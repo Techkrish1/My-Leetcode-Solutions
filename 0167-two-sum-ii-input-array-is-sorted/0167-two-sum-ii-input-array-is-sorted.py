@@ -12,4 +12,3 @@ class Solution:
             else:
                 right -= 1
             i +=1
-        return res
