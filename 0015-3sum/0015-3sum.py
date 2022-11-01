@@ -7,7 +7,6 @@ class Solution:
             r = len(nums) - 1
             
             while l < r :
-
                 if nums[i] + nums[l] + nums[r] == 0:
                     triplets = [nums[i] , nums[l] , nums[r]]
                     if triplets in res:
@@ -19,6 +18,5 @@ class Solution:
                     r -= 1
                 else:
                     l += 1
-            l = 0
-            r = len(nums) - 1
+
         return res
