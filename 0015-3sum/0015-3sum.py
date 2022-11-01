@@ -5,7 +5,6 @@ class Solution:
         for i in range(len(nums)-2):
             l = i+1
             r = len(nums) - 1
-            
             while l < r :
                 if nums[i] + nums[l] + nums[r] == 0:
                     triplets = [nums[i] , nums[l] , nums[r]]
@@ -18,5 +17,4 @@ class Solution:
                     r -= 1
                 else:
                     l += 1
-
         return res
