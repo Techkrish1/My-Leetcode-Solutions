@@ -1,8 +1,15 @@
 class Solution:
     def fib(self, n: int) -> int:
-        memo = {}
-        if n < 2: return n
-        if n-1 not in memo: memo[n-1] = self.fib(n-1)
-        if n-2 not in memo: memo[n-2] = self.fib(n-2)
-
-        return memo[n-1] + memo[n-2]
+        return self.fibn(n, {})
+    
+    
+    def fibn(self, n, memo):
+        if n == 0:
+            return 0
+        elif n == 1:
+            return 1
+        if n not in memo:
+            memo[n] = self.fibn(n-1, memo) + self.fibn(n-2, memo)
+            
+            
+        return memo[n]
