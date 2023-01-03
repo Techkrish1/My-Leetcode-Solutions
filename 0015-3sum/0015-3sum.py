@@ -3,18 +3,20 @@ class Solution:
         res = []
         nums.sort()
         for i in range(len(nums)-2):
-            l = i+1
-            r = len(nums) - 1
-            while l < r :
-                if nums[i] + nums[l] + nums[r] == 0:
-                    triplets = [nums[i] , nums[l] , nums[r]]
-                    if triplets in res:
-                        l += 1
-                    else:
-                        res.append(triplets)
-                        l += 1
-                elif nums[i] + nums[l] + nums[r] > 0 :
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
+            l, r = i+1, len(nums)-1
+            while l < r:
+                s = nums[i] + nums[l] + nums[r]
+                if s < 0:
+                    l +=1 
+                elif s > 0:
                     r -= 1
                 else:
-                    l += 1
+                    res.append((nums[i], nums[l], nums[r]))
+                    while l < r and nums[l] == nums[l+1]:
+                        l += 1
+                    while l < r and nums[r] == nums[r-1]:
+                        r -= 1
+                    l += 1; r -= 1
         return res
