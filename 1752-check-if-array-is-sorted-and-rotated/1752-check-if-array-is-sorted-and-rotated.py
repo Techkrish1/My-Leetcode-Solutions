@@ -1,13 +1,6 @@
 class Solution:
     def check(self, nums: List[int]) -> bool:
-        i = 0
-        while i<len(nums)-1:
-            if nums[i]>nums[i+1]: 
-                break  
-            i+=1
-        
-        rotated = nums[i+1:]+nums[:i+1]
-        for i,e in enumerate(rotated):
-            if i<len(rotated)-1 and e>rotated[i+1]:  
-                return False
-        return True 
+        cnt = 0
+        for i in range(1, len(nums)): 
+            if nums[i-1] > nums[i]: cnt += 1
+        return cnt == 0 or cnt == 1 and nums[-1] <= nums[0]
