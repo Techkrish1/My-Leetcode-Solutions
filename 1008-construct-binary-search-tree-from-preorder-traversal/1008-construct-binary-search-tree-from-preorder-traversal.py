@@ -5,16 +5,14 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
-        root = TreeNode(preorder[0])
-        stack = [root]
-        for value in preorder[1:]:
-            if value < stack[-1].val:
-                stack[-1].left = TreeNode(value)
-                stack.append(stack[-1].left)
-            else:
-                while stack and stack[-1].val < value:
-                    last = stack.pop()
-                last.right = TreeNode(value)
-                stack.append(last.right)
+    def createBST(self, preorder, maxVal):
+        if not preorder or preorder[-1] > maxVal:
+            return None
+        root = TreeNode(preorder.pop())
+        root.left = self.createBST(preorder, root.val)
+        root.right = self.createBST(preorder, maxVal)
         return root
+    
+    
+    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+        return self.createBST(preorder[::-1], sys.maxsize)
