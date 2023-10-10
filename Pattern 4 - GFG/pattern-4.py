@@ -2,9 +2,9 @@
 
 class Solution:
     def printTriangle(self, N):
-        # Code here
         for i in range(1,N+1):
-            print(*[str(i)]*i)
+            print(*([i]*i))
+
 
 #{ 
  # Driver Code Starts
