@@ -2,10 +2,10 @@
 
 class Solution:
     def printSquare(self, N):
-        # Code here
-        for i in range(1,N+1):
-            print('* '*N)
-        
+        for i in range(N):
+            for j in range(N):
+                print('* ', end='')
+            print()
 
 
 #{ 
