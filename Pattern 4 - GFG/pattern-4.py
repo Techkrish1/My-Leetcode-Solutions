@@ -3,7 +3,9 @@
 class Solution:
     def printTriangle(self, N):
         for i in range(1,N+1):
-            print(*([i]*i))
+            for j in range(i):
+                print(i, end=' ')
+            print()
 
 
 #{ 
