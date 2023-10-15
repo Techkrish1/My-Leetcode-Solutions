@@ -2,11 +2,11 @@
 
 class Solution:
     def printTriangle(self, N):
-        # Code here
-        stack = [i for i in range(1, N+1)]
-        while stack != []:
-            print(*stack)
-            stack.pop()
+        while N > 0:
+            for i in range(1, N+1):
+                print(i, end = ' ')
+            print()
+            N -= 1
 
 
 #{ 
