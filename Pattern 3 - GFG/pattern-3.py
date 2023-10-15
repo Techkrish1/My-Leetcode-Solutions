@@ -2,10 +2,10 @@
 
 class Solution:
     def printTriangle(self, N):
-        add = []
         for i in range(1,N+1):
-            add.append(i)
-            print(*add)
+            for j in range(1,i+1):
+                print(j, end=' ')
+            print()
 
 #{ 
  # Driver Code Starts
