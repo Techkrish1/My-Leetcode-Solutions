@@ -2,9 +2,12 @@
 
 class Solution:
     def printTriangle(self, N):
-        while N>0:
-            print('* '*N)
-            N =N-1
+        while N > 0:
+            for j in range(N):
+                print('* ', end='')
+            print()
+            N -= 1
+            
 
 
 #{ 
